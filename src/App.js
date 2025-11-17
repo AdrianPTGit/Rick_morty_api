@@ -1,8 +1,10 @@
 import './App.css';
 import { useEffect, useState, useRef } from 'react';
+import BarraBusqueda from './components/BarraBusqueda';
 
 function App() {
   const [valorLocation, setValorLocation] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const resultadoRef = useRef(null);
 
   useEffect(() => {
@@ -31,6 +33,12 @@ function App() {
 
     llamarApi();
   }, []);
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    fetchCharacters(term);
+    setSelectedCharacter(null);
+  };
 
   return (
     <div>
