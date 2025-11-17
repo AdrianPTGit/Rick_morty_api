@@ -1,10 +1,11 @@
 import './BarraBusqueda.css';
-import { useState} from 'react';
+import { useState, useEffect, handleSubmit} from 'react';
 
 function BarraBusqueda({onSearch}){
- const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+
 useEffect(() => {
     fetchCharacters();
   }, []);
